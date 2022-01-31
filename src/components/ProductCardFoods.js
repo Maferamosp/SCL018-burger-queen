@@ -1,24 +1,31 @@
-import React from "react";
-import data from "../data.json";
+import React, {useContext} from "react";
+import { ContextProducts } from "../App";
 
 const ProductCardFoods = () =>{
- const menuFoots = data.rest;
+
+ const contextG = useContext(ContextProducts);
+ const menuFood = contextG.products.menuRestArr;
+
     return(
-        <div className="cardProduct">
-        <div className="grid grid-rows-4 grid-flow-col gap-4">
-          {menuFoots.map((element, index) =>{
+        <div className="bg-gray-50 w-96 rounded-lg">
+          {menuFood.map((element, index) =>{
               return (
                   <>
-                  <div className="font-bold text-xl mb-2" key={index}>
-                      <p>{element.name}</p>
-                      {element.price + "$"}
-                  </div>
-                  <button className="bg-violet-500 hover:bg-violet-400 active:bg-violet-600 focus:outline-none 
-                  focus:ring focus:ring-violet-300 rounded-lg" type="submit">Agregar</button>
+                 <div className="border-4 border-neutral-900 rounded w-6/12 mb-8 bg-zinc-400 justify-center">
+                    <div className="" key={index.id}>
+                        <p className="font-bold text-xl mb-2">{element.name}</p>
+                        <p className="font-bold text-xl mb-2">{element.price + "$"}</p>
+                    </div>
+                    <button className="bg-violet-500 hover:bg-violet-400 active:bg-violet-600 focus:outline-none 
+                        focus:ring focus:ring-violet-300 rounded w-full" 
+                        onClick={() => contextG.addProducts(element)}key={element.id}>
+                        Agregar  
+                     </button>
+                      </div>
                   </>
               )
           })}
-            </div> 
+
    
      </div>
     )

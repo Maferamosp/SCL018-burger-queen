@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 
 const Init = () =>{
     return (
-        <div className="grid place-content-start h-48">
+      <div className="bg-amber-400 w-full h-screen flex justify-center ">
+        
+      <div className="justify-center">
       <img className="" src={logobar}></img>
-      <Link to="/Rest"><button className="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 
-      rounded-lg focus:shadow-outline hover:bg-green-800">GARZÓN</button></Link>
-      <Link to="/Kitchen"><button className="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 
-      rounded-lg focus:shadow-outline hover:bg-green-800">COCINA</button></Link>
+      
+      <div className="flex flex-col justify-center">
+      <Link to="/Rest"><button className="w-3/5 h-12 px-5  text-indigo-100 transition-colors 
+      duration-150 bg-neutral-900 rounded-full focus:shadow-outline hover:bg-neutral-500">GARZÓN</button></Link>
+
+      <Link to="/Kitchen"><button className="w-3/5 h-12  px-5 text-indigo-100 transition-colors 
+      duration-150 bg-neutral-900 rounded-full focus:shadow-outline hover:bg-neutral-500">COCINA</button></Link>
+      </div>
+    </div>
     </div>
     )
 }

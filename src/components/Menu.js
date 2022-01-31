@@ -1,31 +1,41 @@
 import React, {useState} from "react";
-import logochico from '../logochico.png';
+// import logochico from '../logochico.png';
 import ProductCardFoods from "./ProductCardFoods";
 import ProductCardBar from "./ProductCardBar";
 import Order from "./Order";
+import Header from "./Header";
 
 const Menu = () =>{
     const [menu, seeMenu] = useState(false);
-    const [add, addToOrder] = useState([]);
+    // const [add, addToOrder] = useState([]);
 
 
     return (
-        <>
-    <div className="grid place-content-start h-48">
-        <header className="grid grid-cols-3 gap-4">
-        <img className="grid grid-cols-2 gap-4 place-content-center h-48" src={logochico}></img>
-        </header>
-        <button className="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg 
-        focus:shadow-outline hover:bg-green-800" onClick={() => seeMenu(true)}>BAR</button>
-        { menu && <ProductCardBar/>}
-        <button className="h-10 px-5 m-2 text-green-100 transition-colors duration-150 bg-green-700 rounded-lg 
-        focus:shadow-outline hover:bg-green-800" onClick={() => seeMenu(true)}>FOOTS</button>
-        { menu && <ProductCardFoods/>}    
-    </div>
-    <aside className="Order">
-        <Order add={add}/>
+        <> 
+        <div className="w-full h-max container-lg bg-amber-400 ">
+         <Header/>
+          <div className="grid grid-rows-2 grid-flow-col gap-4">
+            
+            <div className="row-span-2 ml-2 rounded-lg w-3/5 ">
+            <button className="w-96 h-12 px-5  text-indigo-100 transition-colors 
+            duration-150 bg-neutral-900 rounded-lg focus:shadow-outline hover:bg-neutral-500 " 
+            onClick={() => seeMenu(true)}>BAR</button>
+            { menu && <ProductCardBar/>}
+        
+            <button className="w-96 h-12 px-5  text-indigo-100 transition-colors 
+        duration-150 bg-neutral-900 rounded-lg focus:shadow-outline hover:bg-neutral-500" 
+            onClick={() => seeMenu(true)}>COMIDA</button>
+            { menu && <ProductCardFoods/>}    
+            </div>
+           
 
-    </aside>
+        <aside className="row-span-1 col-span-2 ml-2 bg-gray-50 rounded-lg w-2/5">
+            <Order />
+
+        </aside>
+
+        </div>
+        </div>
     </>
     )
 }
