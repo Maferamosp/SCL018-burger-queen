@@ -7,13 +7,15 @@ const Header = () => {
  
     return (
 <>
-<div className="flex justify-center w-screen bg-amber-400 w-full">
+<div className="flex justify-center bg-amber-400 w-full">
 <img src={logochigo}></img>
   
-  <div className="">
 
+  <button>
+  <i className="fas fa-arrow-circle-left"></i>
+  </button>
   </div>
-  </div>
+
 </>
     )
 }

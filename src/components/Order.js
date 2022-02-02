@@ -38,11 +38,16 @@ return (
                       <p>{order.name}</p>
                       <p>{order.price + "$"}</p>
                       <button onClick={() => contextG.decrease(order.id)}>-</button>
+                      <button onClick={() => contextG.removeFromOrder(order.id)}> eliminar</button>
                       <button onClick={() => contextG.increase(order.id)}>+</button>
+                      
                   </div> 
 
                ))} 
                <h3>Total compra:{totalOrder}</h3>
+            </div>
+            <div>
+            <button>Enviar a Cocina</button>
             </div>
            
         </form>
