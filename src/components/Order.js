@@ -30,24 +30,34 @@ return (
     <>
     <ClientForm/>
     <div className="">
-        <h1>ORDEN</h1>
+        <h1 className="text-2xl font-bold ml-3">Orden</h1>
         <form action="" onSubmit={onSubmit}>
-            <div>
+            <div >
                {contextG.products.resumeOrder.map((order) =>(
-                  <div key={order.id}>
-                      <p>{order.name}</p>
-                      <p>{order.price + "$"}</p>
-                      <button onClick={() => contextG.decrease(order.id)}>-</button>
-                      <button onClick={() => contextG.removeFromOrder(order.id)}> eliminar</button>
-                      <button onClick={() => contextG.increase(order.id)}>+</button>
+                  <div className="flex flex-row justify-between m-8" key={order.id}>
+                      <p className="text-lg font-bold">{order.name}</p>
+                      <p className="text-lg font-bold">{order.price + "$"}</p>
+
+                      <button onClick={() => contextG.decrease(order.id)}>
+                      <i className="fas fa-minus-circle fa-lg"></i>
+                      </button>
+
+                      <button className="h-8 px-5 m-2 text-red-100 transition-colors duration-150 
+                      bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800"
+                       onClick={() => contextG.removeFromOrder(order.id)}> eliminar</button>
+
+                      <button onClick={() => contextG.increase(order.id)}>
+                        <i className="fas fa-plus-circle fa-lg"></i>
+                      </button>
                       
                   </div> 
 
                ))} 
-               <h3>Total compra:{totalOrder}</h3>
+               <h3 className="text-2xl font-bold ml-3">Total compra:{totalOrder}</h3>
             </div>
-            <div>
-            <button>Enviar a Cocina</button>
+            <div className="flex justify-center">
+            <button type="submit" className="w-96 h-12 px-5 mt-8 text-indigo-100 transition-colors 
+            duration-150 bg-neutral-900 rounded-lg focus:shadow-outline hover:bg-neutral-500 ">Enviar a Cocina</button>
             </div>
            
         </form>
