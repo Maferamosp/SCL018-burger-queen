@@ -4,12 +4,11 @@ import { Link } from "react-router-dom";
 
 const Init = () =>{
     return (
-      <div className="bg-amber-400 w-full h-full flex justify-center ">
+      <div className="bg-amber-400 w-screen h-screen flex justify-center ">
         
-      <div className="">
-      <img className="" src={logobar}></img>
+      <img className="" alt="" src={logobar}></img>
       
-      <div className="flex flex-col ">
+      <div className="flex flex-col justify-center ">
 
       <Link to="/Rest"><button className="w-96 h-12 mt-8  px-5 text-indigo-100 transition-colors 
       duration-150 bg-neutral-900 rounded-full focus:shadow-outline hover:bg-neutral-500">GARZÓN</button></Link>
@@ -17,7 +16,7 @@ const Init = () =>{
       <Link to="/Kitchen"><button className="w-96 h-12 mt-8  px-5 text-indigo-100 transition-colors 
       duration-150 bg-neutral-900 rounded-full focus:shadow-outline hover:bg-neutral-500">COCINA</button></Link>
       </div>
-    </div>
+
     </div>
     )
 }

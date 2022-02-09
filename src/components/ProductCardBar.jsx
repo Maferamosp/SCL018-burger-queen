@@ -16,7 +16,6 @@ const menuBar = contextG.products.menuBarArr;
              {menuBar.map((element, index) =>{
                  return ( 
                     <>
-                   
                     <div className="border-4 border-neutral-900 rounded w-6/12 mb-8 bg-zinc-400 justify-center">
                         <div className="" key={index.id}>
                          <p className="font-bold text-xl mb-2">{element.name}</p>

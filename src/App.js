@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { Route, Routes} from 'react-router-dom';
 import Init from './components/Init';
 import Menu from './components/Menu';
-import Kitchen from './components/Kithchen';
+import Kitchen from './components/Cocina/Kithchen';
 import data from "./data.json";
 
 export const ContextProducts = React.createContext();
@@ -24,6 +24,8 @@ const App = () =>{
       resumeOrder: []
     });
 
+    const [ orders, showOrder] = useState([]);
+
     const addProducts = (dish) => {
       return setProducts({
         ...products,
@@ -36,13 +38,19 @@ const App = () =>{
           : [...products.resumeOrder, { ...dish, count: 1 }]
       });
     }
-  
+    const clearProducts = () => {
+      setProducts({
+        ...products,
+        resumeOrder: []
+      })
+    }
     const removeFromOrder = (id) => {
       setProducts({
         ...products,
         resumeOrder: products.resumeOrder.filter((item) => item.id !== id)
       });
     };
+  
     
     const increase = (id) => {
       setProducts({
@@ -53,6 +61,7 @@ const App = () =>{
             : item
         )
       });
+      console.log(products);
     };
   
     const decrease = (id) => {
@@ -70,7 +79,8 @@ const App = () =>{
           .reduce((total, dish) => (total = total + dish.price * dish.count), 0)
           .toFixed(2);
   
-    const resumeProps = { name, changeName, table, changeTable, products, addProducts, removeFromOrder, increase, decrease, totalOrderAmount };
+    const resumeProps = { name, changeName, table, changeTable, products, addProducts,
+      removeFromOrder, increase, decrease, totalOrderAmount, orders, showOrder, clearProducts };
 
 
   return (

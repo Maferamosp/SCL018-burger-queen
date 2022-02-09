@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import { ContextProducts } from "../App";
-import db from "../../src/firebaseConfig";
+import db from "../firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 import ClientForm from "./ClientForm";
 
@@ -17,8 +17,14 @@ const Order = () => {
                 name: contextG.name,
                 table: contextG.table,
                 orderClient: contextG.products.resumeOrder,
-                totalPrice: contextG.totalOrderAmount
+                totalPrice: contextG.totalOrderAmount,
+                status: "Pendiente"
             });
+
+            contextG.changeName("");
+            contextG.changeTable("");
+            contextG.clearProducts();
+
         } catch (error) {
             console.log('Ingresaste mal los datos');
             console.log(error);
@@ -35,18 +41,19 @@ return (
             <div >
                {contextG.products.resumeOrder.map((order) =>(
                   <div className="flex flex-row justify-between m-8" key={order.id}>
+                      <p className="text-lg font-bold">{order.count}</p>
                       <p className="text-lg font-bold">{order.name}</p>
                       <p className="text-lg font-bold">{order.price + "$"}</p>
 
-                      <button onClick={() => contextG.decrease(order.id)}>
+                      <button type="button" onClick={() => contextG.decrease(order.id)}>
                       <i className="fas fa-minus-circle fa-lg"></i>
                       </button>
 
                       <button className="h-8 px-5 m-2 text-red-100 transition-colors duration-150 
                       bg-red-700 rounded-lg focus:shadow-outline hover:bg-red-800"
-                       onClick={() => contextG.removeFromOrder(order.id)}> eliminar</button>
+                       onClick={() => contextG.removeFromOrder(order.id)}>Eliminar del carrito</button>
 
-                      <button onClick={() => contextG.increase(order.id)}>
+                      <button type="button" onClick={() => contextG.increase(order.id)}>
                         <i className="fas fa-plus-circle fa-lg"></i>
                       </button>
                       

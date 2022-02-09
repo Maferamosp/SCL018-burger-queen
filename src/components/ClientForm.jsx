@@ -12,7 +12,7 @@ const ClientForm = () => {
         onChange={(e) => contextG.changeName(e.target.value)}/>
         <input className="w-full h-10 px-3 mb-2 text-base text-gray-700 placeholder-gray-600 
         border rounded-lg focus:shadow-outline" type="number"
-        placeholder="Numero de Mesa"
+        placeholder="Número de Mesa"
         value={contextG.table}
         onChange={(e) => contextG.changeTable(e.target.value)}/>
   </div>

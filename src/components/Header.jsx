@@ -1,6 +1,6 @@
 import React from "react";
 import logochigo from '../logochico.png';
-import { Link } from "react-router-dom";
+;
 
 
 
@@ -8,8 +8,8 @@ const Header = () => {
  
     return (
 <>
-<div className="flex justify-between bg-amber-400 ">
-<img src={logochigo} className="w-80"></img>
+<div className="flex justify-between flex-row bg-amber-400 w-full ">
+  <img src={logochigo} alt ="" className="w-80"></img>
   
   <div className="mt-32">
    <a  href="/">
