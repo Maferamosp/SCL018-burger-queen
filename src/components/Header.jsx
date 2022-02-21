@@ -1,14 +1,12 @@
 import React from "react";
 import logochigo from '../logochico.png';
-;
-
-
+// import waiter from '../waiter.png'
 
 const Header = () => {
  
     return (
 <>
-<div className="flex justify-between flex-row bg-amber-400 w-full ">
+<div className="flex justify-between flex-row  w-full ">
   <img src={logochigo} alt ="" className="w-80"></img>
   
   <div className="mt-32">
@@ -23,6 +21,12 @@ const Header = () => {
     <a href="/Kitchen">
       <i className="fas fa-utensils fa-3x mx-8"></i>
     </a>
+
+    {/* <a href="/Waiter">
+    <img src={waiter} alt=""/>
+    </a> */}
+
+  
     </div>
   </div>
 

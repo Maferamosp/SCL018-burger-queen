@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Init = () =>{
     return (
-      <div className="bg-amber-400 w-screen h-screen flex justify-center ">
+      <div className=" w-screen h-screen flex justify-center ">
         
       <img className="" alt="" src={logobar}></img>
       

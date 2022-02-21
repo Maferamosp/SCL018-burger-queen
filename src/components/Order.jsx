@@ -36,7 +36,7 @@ return (
     <>
     <ClientForm/>
     <div className="">
-        <h1 className="text-2xl font-bold ml-3">Orden</h1>
+        <h1 className="text-2xl font-bold ml-3">Orden:</h1>
         <form action="" onSubmit={onSubmit}>
             <div >
                {contextG.products.resumeOrder.map((order) =>(

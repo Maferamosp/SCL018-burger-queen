@@ -5,6 +5,7 @@ import Init from './components/Init';
 import Menu from './components/Menu';
 import Kitchen from './components/Cocina/Kithchen';
 import data from "./data.json";
+import Waiter from './components/ReadyToServe/Waiter';
 
 export const ContextProducts = React.createContext();
 const dataRest = data.rest;
@@ -25,6 +26,14 @@ const App = () =>{
     });
 
     const [ orders, showOrder] = useState([]);
+
+    const [status, setStatus] = useState({
+      status: "Pendiente"
+    })
+
+    const [statusReady, setStatusReady] = useState({
+      status: "Listo"
+    });
 
     const addProducts = (dish) => {
       return setProducts({
@@ -80,7 +89,8 @@ const App = () =>{
           .toFixed(2);
   
     const resumeProps = { name, changeName, table, changeTable, products, addProducts,
-      removeFromOrder, increase, decrease, totalOrderAmount, orders, showOrder, clearProducts };
+      removeFromOrder, increase, decrease, totalOrderAmount, orders, showOrder, 
+      clearProducts, status, setStatus, statusReady, setStatusReady };
 
 
   return (
@@ -90,6 +100,7 @@ const App = () =>{
       <Route path="/" element={ <Init/> } />
       <Route path="/Rest" element={ <Menu/> } />
       <Route path="/Kitchen" element={ <Kitchen/> } />
+      <Route path="/Waiter" element={<Waiter/>} />
     </Routes>
     </ContextProducts.Provider>
     </>

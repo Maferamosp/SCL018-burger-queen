@@ -1,6 +1,6 @@
-import React, {useContext, useEffect} from "react";
+import React, { useEffect, useContext} from "react";
 import {ContextProducts} from "../../App"
-import { collection, onSnapshot } from "firebase/firestore";
+import { collection, onSnapshot} from "firebase/firestore";
 import db from "../../firebaseConfig";
 import OrderTable from "./OrderTable";
 
@@ -19,22 +19,27 @@ const KitchenOrder = () =>{
                     return{...list.data(), id: list.id};
                 })
             showOrder(arrOrders);
+            
             }
         )
     }, []);
 
-    const pendingOrders = orders.filter((order) => {
-        return order.status.status === "Pendiente";
+    const pendingOrders = orders.filter((list) => {
+        return list.status === "Pendiente";
       })
 
     return(
-        orders.length > 0 &&
+        pendingOrders.length > 0 &&
         <div>
-        {pendingOrders.map((list)=>{
+        {pendingOrders.map((list)=> {
             return <OrderTable
-            key={list.id} id={list.id} 
-            orderClient={list.orderClient} 
-            totalPrice={list.totalPrice}/>  
+            key={list.id} 
+            id={list.id} 
+            orderClient={list.orderClient}
+            name={list.name}
+            table={list.table} 
+            totalPrice={list.totalPrice}
+            statuss={list.status}/>  
         })}
         </div>
    

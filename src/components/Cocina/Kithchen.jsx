@@ -1,14 +1,15 @@
 import React from "react";
 import Header from "../Header";
+import KitchenOrder from "./KitchenOrder";
 
 const Kitchen = () =>{
     return (
     <>
     
-    <div className=" w-screen h-screen bg-amber-400 ">
+    <div className=" w-screen h-screen  ">
     <Header/>
-        <div>
-            <h1>COCINA</h1>
+        <div className="">
+            <KitchenOrder/>
         </div>
         <div>
           

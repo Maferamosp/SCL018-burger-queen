@@ -26,7 +26,7 @@ const Menu = () =>{
 
     return (
         <> 
-        <div className="w-full md:h-full bg-amber-400 ">
+        <div className="w-full md:h-full ">
          <Header/>
           <div className="grid grid-rows-2 grid-flow-col gap-4 ml-20">
             
